@@ -1,0 +1,21 @@
+body {
+  background-image: linear-gradient(to bottom right, #e1042b, #fb1d44);
+  height: 100vh;
+}
+
+.bio {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  transform: translateY(15%);
+  background: #dbdbdb;
+  padding: 100px;
+}
+
+.bio__text {
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: crimson;
+  line-height: 1.5;
+  text-align: justify;
+}
