@@ -1,15 +1,21 @@
 body {
-  background-image: linear-gradient(to bottom right, #e1042b, #fb1d44);
+  background: linear-gradient(to bottom right, #e1042b, #fb1d44) no-repeat center/cover;
   height: 100vh;
+}
+
+main{
+  height: 90%;
+  width: 100%;
 }
 
 .bio {
   width: 50%;
   height: 50%;
-  margin: auto;
+  margin: 0 auto;
   transform: translateY(15%);
   background: #dbdbdb;
   padding: 100px;
+  border-radius: 7px;
 }
 
 .bio__text {
@@ -18,4 +24,14 @@ body {
   color: crimson;
   line-height: 1.5;
   text-align: justify;
+}
+
+footer{
+  height: 10%;
+  width: 100%;
+}
+
+footer p {
+  transform: translateY(50%);
+  text-align: center;
 }
