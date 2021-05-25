@@ -1,41 +1,160 @@
 'use strict';
 
-const printMessage = function (msg) {
-  alert(msg);
-};
 
-const checkAnswer = function (answer) {
-  answer = answer.toLowerCase();
-  if (answer === 'yes' || answer[0] === 'y') {
+let guessed = false; // Used in the 7'th question
+let userAnswer = '';
+let listElements = ''; // Used in the 7'th question
+let numberOfCorrectAnswers = 0;
+
+const favList = ['house m.d.', 'hannibal', 'the mentalist', 'mansaf', 'pizza']; // Used in the 7'th question
+const rightAnswer = 'You guess it right'; // Used in the first 5 question
+const wrongAnswer = 'You don\'t guess it right'; // Used in the first 5 question
+
+// random() Code from : https://www.joshwcomeau.com/snippets/javascript/random/
+const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+const checkNumber = function (number) {
+  if (!isNaN(number) && typeof number === 'number') {
     return true;
   }
   return false;
 };
 
-const rightAnswer = 'You guess it right';
-const wrongAnswer = 'You don\'t guess it right';
-let userAnswer = '';
+const validateNumber = function (number) {
+  if (checkNumber(number)) {
+    return number;
+  } else {
+    number = parseInt(prompt('Please sir enter a number between 0 and 10 (0 - 10)!'));
+    return validateNumber(number);
+  }
+};
+
+const getUserNumber = function () {
+  const number = parseInt(prompt('Please sir enter a number between 0 and 10'));
+  return validateNumber(number);
+};
+
+const printMessage = function (msg) {
+  alert(msg);
+};
+
+const guessNumber = function () {
+  const rand = random(0, 10);
+  let guessed = false;
+  let number = 0;
+  for (let attempts = 1; attempts <= 4 && !guessed; attempts++) {
+    number = getUserNumber();
+    if (number < rand) {
+      printMessage('your guess is to low');
+    }
+    else if (number > rand) {
+      printMessage('your guess is to high');
+    } else {
+      printMessage('You guess it right! number is : ' + number);
+      guessed = true;
+      numberOfCorrectAnswers++;
+    }
+  }
+
+  if (!guessed)
+    printMessage('Sorry sir you don\'t guess it number is : ' + number);
+};
+
+
+const checkAnswer = function (answer) {
+  answer = answer.toLowerCase();
+  if (answer === 'yes' || answer[0] === 'y') {
+    return true;
+  } else if (answer === 'no' || answer[0] === 'n') {
+    return false;
+  } else
+    return checkAnswer(prompt('Please sir enter either "yes/y" or "no/n" !!'));
+};
+
 
 const userName = prompt('What is your name sir');
-alert(`Hell ${userName} you are very welcome in our website!`);
+alert(`Hello ${userName} you are very welcome in our website!`);
 
-userAnswer = prompt('Am i 27 years old? (yes / no)');
+userAnswer = prompt('Am i 27 years old? (yes/y or no/n)');
 // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
-checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
+//checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
+if (checkAnswer(userAnswer)) {
+  printMessage(rightAnswer);
+  numberOfCorrectAnswers++;
+} else
+  printMessage(wrongAnswer);
 
-userAnswer = prompt('Am i a Civil Engineer? (yes / no)');
+userAnswer = prompt('Am i a Civil Engineer? (yes/y or no/n)');
 // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
-
-userAnswer = prompt('Do i like Mansaf? (yes / no)');
+//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+if (checkAnswer(userAnswer)) {
+  printMessage(wrongAnswer);
+} else {
+  printMessage(rightAnswer);
+  numberOfCorrectAnswers++;
+}
+userAnswer = prompt('Do i like Mansaf? (yes/y or no/n)');
 // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
-checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
+//checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
+if (checkAnswer(userAnswer)) {
+  printMessage(rightAnswer);
+  numberOfCorrectAnswers++;
+} else {
+  printMessage(wrongAnswer);
+}
 
-userAnswer = prompt('Do you think that i don\'t like TV-Shows? (yes / no)');
+userAnswer = prompt('Do you think that i don\'t like TV-Shows? (yes/y or no/n)');
 // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+if (checkAnswer(userAnswer)) {
+  printMessage(wrongAnswer);
+} else {
+  printMessage(rightAnswer);
+  numberOfCorrectAnswers++;
+}
 
-userAnswer = prompt('Do i like Molokhia? (yes / no)');
-checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+userAnswer = prompt('Do i like Molokhia? (yes/y or no/n)');
 // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
+//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+if (checkAnswer(userAnswer)) {
+  printMessage(wrongAnswer);
+} else {
+  printMessage(rightAnswer);
+  numberOfCorrectAnswers++;
+}
+
+
+// 6'th question
+guessNumber();
+
+
+// 7'th question
+
+for (let attempts = 0; attempts < 6 && !guessed; attempts++) {
+  if (!guessed && attempts === 0)
+    userAnswer = prompt('Guess one of my favorite Movies, TV-Shows, Food.').toLowerCase(); // First attempt
+  else if (!guessed && attempts > 0) {
+    printMessage(`Sorry ${userAnswer} is not in the list attempts left : ${6 - attempts}`);
+    userAnswer = prompt('Guess agine!').toLowerCase();
+  }
+  for (let index = 0; index < favList.length; index++) {
+    if (userAnswer === favList[index]) {
+      guessed = true;
+      numberOfCorrectAnswers++;
+      break;
+    }
+  }
+}
+
+
+for (let index = 0; index < favList.length; index++) {
+  if (index + 1 !== favList.length)
+    listElements += favList[index] + ', ';
+  else
+    listElements += favList[index];
+}
+
+printMessage('The correct answers are : ' + listElements);
+printMessage('Your score is : ' + numberOfCorrectAnswers);
+
 alert(`Thank you ${userName} for answering my questions!`);
