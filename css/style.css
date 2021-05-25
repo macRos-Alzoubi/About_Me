@@ -11,7 +11,7 @@ main{
 .bio {
   width: 50%;
   height: 50%;
-  margin: 0 auto;
+  margin: auto;
   transform: translateY(15%);
   background: #dbdbdb;
   padding: 100px;
