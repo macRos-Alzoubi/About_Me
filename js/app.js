@@ -73,11 +73,8 @@ const checkAnswer = function (answer) {
     return checkAnswer(prompt('Please sir enter either "yes/y" or "no/n" !!'));
 };
 
-
-const userName = prompt('What is your name sir');
-alert(`Hello ${userName} you are very welcome in our website!`);
-
-userAnswer = prompt('Am i 27 years old? (yes/y or no/n)');
+function qustion1() {
+  userAnswer = prompt('Am i 27 years old? (yes/y or no/n)');
 // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
 //checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
 if (checkAnswer(userAnswer)) {
@@ -85,6 +82,13 @@ if (checkAnswer(userAnswer)) {
   numberOfCorrectAnswers++;
 } else
   printMessage(wrongAnswer);
+  
+}
+
+const userName = prompt('What is your name sir');
+alert(`Hello ${userName} you are very welcome in our website!`);
+
+qustion1();
 
 userAnswer = prompt('Am i a Civil Engineer? (yes/y or no/n)');
 // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
