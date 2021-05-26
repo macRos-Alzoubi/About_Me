@@ -137,13 +137,37 @@ function qustion5() {
 function qustion6() {
   guessNumber();
 }
+
+
+function qustion7() {
+  for (let attempts = 0; attempts < 6 && !guessed; attempts++) {
+    if (!guessed && attempts === 0)
+      userAnswer = prompt('Guess one of my favorite Movies, TV-Shows, Food.').toLowerCase(); // First attempt
+    else if (!guessed && attempts > 0) {
+      printMessage(`Sorry ${userAnswer} is not in the list attempts left : ${6 - attempts}`);
+      userAnswer = prompt('Guess agine!').toLowerCase();
+    }
+    for (let index = 0; index < favList.length; index++) {
+      if (userAnswer === favList[index]) {
+        guessed = true;
+        numberOfCorrectAnswers++;
+        printMessage(`You guess it right, it's ${userAnswer}`);
+        break;
+      }
+    }
+  }
+  
+  
+  
+}
+
 qustion1();
 qustion2();
 qustion3();
 qustion4();
 qustion5();
 qustion6();
-
+qustion7();
 
 
 
@@ -156,24 +180,6 @@ qustion6();
 
 
 // 7'th question
-
-for (let attempts = 0; attempts < 6 && !guessed; attempts++) {
-  if (!guessed && attempts === 0)
-    userAnswer = prompt('Guess one of my favorite Movies, TV-Shows, Food.').toLowerCase(); // First attempt
-  else if (!guessed && attempts > 0) {
-    printMessage(`Sorry ${userAnswer} is not in the list attempts left : ${6 - attempts}`);
-    userAnswer = prompt('Guess agine!').toLowerCase();
-  }
-  for (let index = 0; index < favList.length; index++) {
-    if (userAnswer === favList[index]) {
-      guessed = true;
-      numberOfCorrectAnswers++;
-      printMessage(`You guess it right, it's ${userAnswer}`);
-      break;
-    }
-  }
-}
-
 
 for (let index = 0; index < favList.length; index++) {
   if (index + 1 !== favList.length)
