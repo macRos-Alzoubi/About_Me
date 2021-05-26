@@ -141,6 +141,7 @@ for (let attempts = 0; attempts < 6 && !guessed; attempts++) {
     if (userAnswer === favList[index]) {
       guessed = true;
       numberOfCorrectAnswers++;
+      printMessage(`You guess it right, it's ${userAnswer}`);
       break;
     }
   }
