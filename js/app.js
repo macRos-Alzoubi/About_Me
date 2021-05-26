@@ -96,20 +96,8 @@ function qustion2() {
     printMessage(rightAnswer);
     numberOfCorrectAnswers++;
   }}
-
-const userName = prompt('What is your name sir');
-alert(`Hello ${userName} you are very welcome in our website!`);
-
-
-qustion1();
-qustion2();
-
-
-
-
-
-
-userAnswer = prompt('Do i like Mansaf? (yes/y or no/n)');
+function qustion3() {
+  userAnswer = prompt('Do i like Mansaf? (yes/y or no/n)');
 // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
 //checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
 if (checkAnswer(userAnswer)) {
@@ -118,6 +106,21 @@ if (checkAnswer(userAnswer)) {
 } else {
   printMessage(wrongAnswer);
 }
+}
+const userName = prompt('What is your name sir');
+alert(`Hello ${userName} you are very welcome in our website!`);
+
+
+qustion1();
+qustion2();
+qustion3();
+
+
+
+
+
+
+
 
 userAnswer = prompt('Do you think that i don\'t like TV-Shows? (yes/y or no/n)');
 // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
