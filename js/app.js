@@ -122,10 +122,23 @@ function qustion4() {
     numberOfCorrectAnswers++;
   }
 }
+function qustion5() {
+  userAnswer = prompt('Do i like Molokhia? (yes/y or no/n)');
+  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
+  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+  if (checkAnswer(userAnswer)) {
+    printMessage(wrongAnswer);
+  } else {
+    printMessage(rightAnswer);
+    numberOfCorrectAnswers++;
+  }
+
+}
 qustion1();
 qustion2();
 qustion3();
 qustion4();
+qustion5();
 
 
 
@@ -134,16 +147,6 @@ qustion4();
 
 
 
-
-userAnswer = prompt('Do i like Molokhia? (yes/y or no/n)');
-// if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
-if (checkAnswer(userAnswer)) {
-  printMessage(wrongAnswer);
-} else {
-  printMessage(rightAnswer);
-  numberOfCorrectAnswers++;
-}
 
 
 // 6'th question
