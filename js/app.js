@@ -134,12 +134,15 @@ function qustion5() {
   }
 
 }
+function qustion6() {
+  guessNumber();
+}
 qustion1();
 qustion2();
 qustion3();
 qustion4();
 qustion5();
-
+qustion6();
 
 
 
@@ -150,7 +153,6 @@ qustion5();
 
 
 // 6'th question
-guessNumber();
 
 
 // 7'th question
