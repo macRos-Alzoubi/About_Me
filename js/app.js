@@ -74,81 +74,112 @@ const checkAnswer = function (answer) {
 };
 
 
+
+function qustion1() {
+  userAnswer = prompt('Am i 27 years old? (yes/y or no/n)');
+  // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
+  //checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
+  if (checkAnswer(userAnswer)) {
+    printMessage(rightAnswer);
+    numberOfCorrectAnswers++;
+  } else
+    printMessage(wrongAnswer);
+
+}
+function qustion2() {
+  userAnswer = prompt('Am i a Civil Engineer? (yes/y or no/n)');
+  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
+  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+  if (checkAnswer(userAnswer)) {
+    printMessage(wrongAnswer);
+  } else {
+    printMessage(rightAnswer);
+    numberOfCorrectAnswers++;
+  }}
+function qustion3() {
+  userAnswer = prompt('Do i like Mansaf? (yes/y or no/n)');
+  // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
+  //checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
+  if (checkAnswer(userAnswer)) {
+    printMessage(rightAnswer);
+    numberOfCorrectAnswers++;
+  } else {
+    printMessage(wrongAnswer);
+  }
+}
 const userName = prompt('What is your name sir');
 alert(`Hello ${userName} you are very welcome in our website!`);
 
-userAnswer = prompt('Am i 27 years old? (yes/y or no/n)');
-// if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
-//checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
-if (checkAnswer(userAnswer)) {
-  printMessage(rightAnswer);
-  numberOfCorrectAnswers++;
-} else
-  printMessage(wrongAnswer);
+function qustion4() {
 
-userAnswer = prompt('Am i a Civil Engineer? (yes/y or no/n)');
-// if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
-if (checkAnswer(userAnswer)) {
-  printMessage(wrongAnswer);
-} else {
-  printMessage(rightAnswer);
-  numberOfCorrectAnswers++;
+  userAnswer = prompt('Do you think that i don\'t like TV-Shows? (yes/y or no/n)');
+  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
+  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+  if (checkAnswer(userAnswer)) {
+    printMessage(wrongAnswer);
+  } else {
+    printMessage(rightAnswer);
+    numberOfCorrectAnswers++;
+  }
 }
-userAnswer = prompt('Do i like Mansaf? (yes/y or no/n)');
-// if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
-//checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
-if (checkAnswer(userAnswer)) {
-  printMessage(rightAnswer);
-  numberOfCorrectAnswers++;
-} else {
-  printMessage(wrongAnswer);
-}
+function qustion5() {
+  userAnswer = prompt('Do i like Molokhia? (yes/y or no/n)');
+  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
+  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
+  if (checkAnswer(userAnswer)) {
+    printMessage(wrongAnswer);
+  } else {
+    printMessage(rightAnswer);
+    numberOfCorrectAnswers++;
+  }
 
-userAnswer = prompt('Do you think that i don\'t like TV-Shows? (yes/y or no/n)');
-// if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
-if (checkAnswer(userAnswer)) {
-  printMessage(wrongAnswer);
-} else {
-  printMessage(rightAnswer);
-  numberOfCorrectAnswers++;
+}
+function qustion6() {
+  guessNumber();
 }
 
-userAnswer = prompt('Do i like Molokhia? (yes/y or no/n)');
-// if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-//checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
-if (checkAnswer(userAnswer)) {
-  printMessage(wrongAnswer);
-} else {
-  printMessage(rightAnswer);
-  numberOfCorrectAnswers++;
+
+function qustion7() {
+  for (let attempts = 0; attempts < 6 && !guessed; attempts++) {
+    if (!guessed && attempts === 0)
+      userAnswer = prompt('Guess one of my favorite Movies, TV-Shows, Food.').toLowerCase(); // First attempt
+    else if (!guessed && attempts > 0) {
+      printMessage(`Sorry ${userAnswer} is not in the list attempts left : ${6 - attempts}`);
+      userAnswer = prompt('Guess agine!').toLowerCase();
+    }
+    for (let index = 0; index < favList.length; index++) {
+      if (userAnswer === favList[index]) {
+        guessed = true;
+        numberOfCorrectAnswers++;
+        printMessage(`You guess it right, it's ${userAnswer}`);
+        break;
+      }
+    }
+  }
+  
+  
+  
 }
+
+qustion1();
+qustion2();
+qustion3();
+qustion4();
+qustion5();
+qustion6();
+qustion7();
+
+
+
+
+
+
 
 
 // 6'th question
-guessNumber();
 
 
 // 7'th question
-
-for (let attempts = 0; attempts < 6 && !guessed; attempts++) {
-  if (!guessed && attempts === 0)
-    userAnswer = prompt('Guess one of my favorite Movies, TV-Shows, Food.').toLowerCase(); // First attempt
-  else if (!guessed && attempts > 0) {
-    printMessage(`Sorry ${userAnswer} is not in the list attempts left : ${6 - attempts}`);
-    userAnswer = prompt('Guess agine!').toLowerCase();
-  }
-  for (let index = 0; index < favList.length; index++) {
-    if (userAnswer === favList[index]) {
-      guessed = true;
-      numberOfCorrectAnswers++;
-      printMessage(`You guess it right, it's ${userAnswer}`);
-      break;
-    }
-  }
-}
-
 
 for (let index = 0; index < favList.length; index++) {
   if (index + 1 !== favList.length)
