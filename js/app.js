@@ -40,8 +40,6 @@ const printMessage = function (msg) {
 
 const guessNumber = function () {
   const rand = random(0, 10);
-  alert(rand);
-  console.log(rand);
   let guessed = false;
   let number = 0;
   for (let attempts = 1; attempts <= 4 && !guessed; attempts++) {
