@@ -1,14 +1,14 @@
 'use strict';
 
 
-let guessed = false; // Used in the 7'th question
+let guessed = false;
 let userAnswer = '';
-let listElements = ''; // Used in the 7'th question
+let listElements = '';
 let numberOfCorrectAnswers = 0;
 
-const favList = ['house m.d.', 'hannibal', 'the mentalist', 'mansaf', 'pizza']; // Used in the 7'th question
-const rightAnswer = 'You guess it right'; // Used in the first 5 question
-const wrongAnswer = 'You don\'t guess it right'; // Used in the first 5 question
+const favList = ['house m.d.', 'hannibal', 'the mentalist', 'mansaf', 'pizza'];
+const rightAnswer = 'You guess it right';
+const wrongAnswer = 'You don\'t guess it right';
 
 // random() Code from : https://www.joshwcomeau.com/snippets/javascript/random/
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
@@ -77,8 +77,6 @@ const checkAnswer = function (answer) {
 
 function qustion1() {
   userAnswer = prompt('Am i 27 years old? (yes/y or no/n)');
-  // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
-  //checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
   if (checkAnswer(userAnswer)) {
     printMessage(rightAnswer);
     numberOfCorrectAnswers++;
@@ -88,18 +86,15 @@ function qustion1() {
 }
 function qustion2() {
   userAnswer = prompt('Am i a Civil Engineer? (yes/y or no/n)');
-  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
   if (checkAnswer(userAnswer)) {
     printMessage(wrongAnswer);
   } else {
     printMessage(rightAnswer);
     numberOfCorrectAnswers++;
-  }}
+  }
+}
 function qustion3() {
   userAnswer = prompt('Do i like Mansaf? (yes/y or no/n)');
-  // if 'yes' console.log("You guess it right"), if 'no' console.log("You don't guess it right");
-  //checkAnswer(userAnswer) ? printMessage(rightAnswer) : printMessage(wrongAnswer);
   if (checkAnswer(userAnswer)) {
     printMessage(rightAnswer);
     numberOfCorrectAnswers++;
@@ -113,8 +108,6 @@ alert(`Hello ${userName} you are very welcome in our website!`);
 function qustion4() {
 
   userAnswer = prompt('Do you think that i don\'t like TV-Shows? (yes/y or no/n)');
-  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
   if (checkAnswer(userAnswer)) {
     printMessage(wrongAnswer);
   } else {
@@ -124,8 +117,6 @@ function qustion4() {
 }
 function qustion5() {
   userAnswer = prompt('Do i like Molokhia? (yes/y or no/n)');
-  // if 'yes' console.log("You don't guess it right"), if 'no' console.log("You guess it right");
-  //checkAnswer(userAnswer) ? printMessage(wrongAnswer) : printMessage(rightAnswer);
   if (checkAnswer(userAnswer)) {
     printMessage(wrongAnswer);
   } else {
@@ -156,9 +147,6 @@ function qustion7() {
       }
     }
   }
-  
-  
-  
 }
 
 qustion1();
